@@ -11,47 +11,55 @@
 <li>Requires <code>docker</code> and <code>bash</code>(Not <code>dash</code> or <code>mksh</code>, <code>bash</code>), as well as an I2P router. UDP services require either i2pd or a freestanding proxy capable of supporting UDP traffic.</li>
 <li>SAM is expected to be enabled on the I2P Router for some services, including hosting this site with eephttpd.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
+<h3 id="usage">Usage:</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="ex">functions</span>: help pages clean install uninstall</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">help</span>: show this message</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">pages</span>: generate the pages</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="ex">clean</span>: clean up the pages</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="ex">install</span>: setup the cron jobs and shell scripts</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="ex">uninstall</span>: remove the cron jobs and shell scripts</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
 <h2 id="setting-up-the-i2p-hosts-automatically"><a href="host.html">Setting up the I2P Hosts Automatically</a></h2>
 <h3 id="notes-1">Notes:</h3>
 <ul>
 <li>Hosting this site(The one in this repository) requires a checkout of this repository. It can be anywhere, the script finds the correct directory to use.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">#!/usr/bin/env bash</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="va">DIR=$(</span><span class="fu">dirname</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">readlink</span> -f <span class="st">&quot;</span><span class="va">$0</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span><span class="va">)</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="ex">docker</span> pull eyedeekay/eephttpd</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="ex">docker</span> rm -f i2pservices</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="ex">docker</span> run -i -t -d <span class="kw">\</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    <span class="ex">--env</span> samhost=<span class="st">&quot;localhost&quot;</span> <span class="kw">\</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    <span class="ex">--env</span> samport=7656 <span class="kw">\</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>    <span class="ex">--env</span> args=<span class="st">&quot;-r -p 7672 -n eephttpd-jpackage&quot;</span> <span class="kw">\</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    <span class="ex">--network</span> host <span class="kw">\</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    <span class="ex">--hostname</span> i2pservices <span class="kw">\</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>    <span class="ex">--name</span> i2pservices <span class="kw">\</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>    <span class="ex">--restart</span> always <span class="kw">\</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$DIR</span><span class="st">&quot;</span>:/opt/eephttpd/www <span class="kw">\</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>    <span class="ex">eyedeekay/eephttpd</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="va">DIR=$(</span><span class="fu">dirname</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">readlink</span> -f <span class="st">&quot;</span><span class="va">$0</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span><span class="va">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="ex">docker</span> pull eyedeekay/eephttpd</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="ex">docker</span> rm -f i2pservices</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a><span class="ex">docker</span> run -i -t -d <span class="kw">\</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>    <span class="ex">--env</span> samhost=<span class="st">&quot;localhost&quot;</span> <span class="kw">\</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    <span class="ex">--env</span> samport=7656 <span class="kw">\</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    <span class="ex">--env</span> args=<span class="st">&quot;-r -p 7672 -n eephttpd-jpackage&quot;</span> <span class="kw">\</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>    <span class="ex">--network</span> host <span class="kw">\</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    <span class="ex">--hostname</span> i2pservices <span class="kw">\</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    <span class="ex">--name</span> i2pservices <span class="kw">\</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    <span class="ex">--restart</span> always <span class="kw">\</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$DIR</span><span class="st">&quot;</span>:/opt/eephttpd/www <span class="kw">\</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    <span class="ex">eyedeekay/eephttpd</span></span></code></pre></div>
 <h2 id="docker-system-management-portainer"><a href="portainer.html">Docker system Management: Portainer</a></h2>
 <h3 id="notes-2">Notes:</h3>
 <ul>
 <li>Set up username/password before exposing hidden service</li>
 <li>Uses Encrypted LeaseSet</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="ex">docker</span> pull portainer/portainer-ce</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="ex">docker</span> rm -f portainer</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="ex">docker</span> run -d -p 127.0.0.1:8000:8000 -p 127.0.0.1:9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">&quot;</span>/portainer-data:/data portainer/portainer-ce</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="ex">docker</span> pull portainer/portainer-ce</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="ex">docker</span> rm -f portainer</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="ex">docker</span> run -d -p 127.0.0.1:8000:8000 -p 127.0.0.1:9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">&quot;</span>/portainer-data:/data portainer/portainer-ce</span></code></pre></div>
 <h2 id="pastebin-cowyo"><a href="pastebin.html">Pastebin: Cowyo</a></h2>
 <h3 id="notes-3">Notes:</h3>
 <ul>
 <li>No Special Configuration Required.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="ex">docker</span> pull schollz/cowyo</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="ex">docker</span> rm -f pastebin</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="ex">docker</span> run --restart=always --name=pastebin -d -v <span class="va">$HOME</span>/cowyo-data:/data -p 127.0.0.1:8050:8050 schollz/cowyo</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="ex">docker</span> pull schollz/cowyo</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="ex">docker</span> rm -f pastebin</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="ex">docker</span> run --restart=always --name=pastebin -d -v <span class="va">$HOME</span>/cowyo-data:/data -p 127.0.0.1:8050:8050 schollz/cowyo</span></code></pre></div>
 <h2 id="news-server-i2p.newsxml"><a href="newsxml.html">News Server: i2p.newsxml</a></h2>
 <h3 id="notes-4">Notes:</h3>
 <ul>
@@ -59,16 +67,16 @@
 <li>This is the script that relaunches backup news server for I2P I run. Nobody else can really use it without the keys, unless they want to set up another news server on a different URL.</li>
 <li>This doesn’t handle generating or signing the news feeds, just hosting them. Generate and sign them on one machine, copy them to the host machine, and run the update script.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="bu">cd</span> <span class="va">$HOME</span>/i2p.newsxml</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="ex">docker</span> build -t i2p.newsxml .</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="ex">docker</span> rm -f newsxml</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="ex">docker</span> run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="bu">cd</span> <span class="va">$HOME</span>/i2p.newsxml</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="ex">docker</span> build -t i2p.newsxml .</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="ex">docker</span> rm -f newsxml</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="ex">docker</span> run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml</span></code></pre></div>
 <h2 id="wiki-dokuwiki"><a href="dokuwiki.html">Wiki: DokuWiki</a></h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
-<h2 id="strategy-game-freeciv-server"><a href="freeciv.html">Strategy Game: Freeciv Server</a></h2>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
-<h2 id="radio-station"><a href="radio.html">“Radio” Station:</a></h2>
+<h2 id="strategy-game-freeciv-server"><a href="freeciv.html">Strategy Game: Freeciv Server</a></h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
+<h2 id="radio-station"><a href="radio.html">“Radio” Station:</a></h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
 </body>
 </html>
