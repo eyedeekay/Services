@@ -72,11 +72,22 @@
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="ex">docker</span> build -t i2p.newsxml .</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="ex">docker</span> rm -f newsxml</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="ex">docker</span> run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml</span></code></pre></div>
+<h2 id="i2p-jpackage-update-server">I2P Jpackage Update Server</h2>
+<h3 id="notes-5">Notes:</h3>
+<ul>
+<li>This sets up an update server for the I2P Jpackages. It will check out the site at <code>$HOME/i2p-jpackage</code> and <code>jpackage.sh</code> will run the internal <code>update-site.sh</code> script as a cron job.</li>
+<li>If you’re me, you need to copy <code>eephttpd.i2pkeys</code> to <code>$HOME</code> before running. If you’re not me, I’m just tickled that you’re setting up an update server for your own fork. Maybe ping me on IRC.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">if</span><span class="bu"> [</span> <span class="ot">!</span> <span class="ot">-d</span> <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/i2p-jpackage&quot;</span><span class="bu"> ]</span>; <span class="kw">then</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>    <span class="fu">git</span> clone https://github.com/eyedeekay/i2p <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/i2p-jpackage&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="kw">fi</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/i2p-jpackage/update-site.sh&quot;</span></span></code></pre></div>
 <h2 id="wiki-dokuwiki"><a href="dokuwiki.html">Wiki: DokuWiki</a></h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
-<h2 id="strategy-game-freeciv-server"><a href="freeciv.html">Strategy Game: Freeciv Server</a></h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
-<h2 id="radio-station"><a href="radio.html">“Radio” Station:</a></h2>
+<h2 id="strategy-game-freeciv-server"><a href="freeciv.html">Strategy Game: Freeciv Server</a></h2>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
+<h2 id="radio-station"><a href="radio.html">“Radio” Station:</a></h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
 </body>
 </html>
