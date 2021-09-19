@@ -20,11 +20,6 @@
 
  - Hosting this site(The one in this repository) requires a checkout of this
   repository. It can be anywhere, the script finds the correct directory to use.
- - Requires `docker` and `bash`(Not `dash` or `mksh`, `bash`), as well as an
-  I2P router. UDP services require either i2pd or a freestanding proxy capable
-  of supporting UDP traffic.
- - SAM is expected to be enabled on the I2P Router for some services, including
-  hosting this site with eephttpd.
 
 ```bash
 #!/usr/bin/env bash
@@ -60,7 +55,7 @@ docker rm -f portainer
 docker run -d -p 127.0.0.1:8000:8000 -p 127.0.0.1:9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v "$HOME"/portainer-data:/data portainer/portainer-ce
 ```
 
-[Pastebin: Based on Cowyo](pastebin.html)
+[Pastebin: Cowyo](pastebin.html)
 -----------------------------------------
 
 ### Notes:
@@ -74,7 +69,7 @@ docker rm -f pastebin
 docker run --restart=always --name=pastebin -d -v $HOME/cowyo-data:/data -p 127.0.0.1:8050:8050 schollz/cowyo
 ```
 
-[News Server: Based on i2p.newsxml](newsxml.html)
+[News Server: i2p.newsxml](newsxml.html)
 -------------------------------------------------
 
 ### Notes:
@@ -96,14 +91,14 @@ docker rm -f newsxml
 docker run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml
 ```
 
-[Wiki: Based on DokuWiki](dokuwiki.html)
+[Wiki: DokuWiki](dokuwiki.html)
 ----------------------------------------
 
 ```bash
 
 ```
 
-[Freeciv(Strategy Game) Server](freeciv.html)
+[Strategy Game: Freeciv Server](freeciv.html)
 ---------------------------------------------
 
 ```bash

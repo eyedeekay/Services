@@ -1,4 +1,4 @@
-[Pastebin: Based on Cowyo](pastebin.html)
+[Pastebin: Cowyo](pastebin.html)
 -----------------------------------------
 
 ### Notes:

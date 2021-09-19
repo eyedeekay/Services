@@ -1,4 +1,4 @@
-[News Server: Based on i2p.newsxml](newsxml.html)
+[News Server: i2p.newsxml](newsxml.html)
 -------------------------------------------------
 
 ### Notes:

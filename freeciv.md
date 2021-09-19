@@ -1,4 +1,4 @@
-[Freeciv(Strategy Game) Server](freeciv.html)
+[Strategy Game: Freeciv Server](freeciv.html)
 ---------------------------------------------
 
 ```bash

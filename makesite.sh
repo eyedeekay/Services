@@ -21,6 +21,22 @@ function help() {
 	echo "functions: $funcs$usage"
 }
 
+function hhead() {
+	upper=$(echo "$1" | tr '[:lower:]' '[:upper:]')
+	echo "<!DOCTYPE html>" > $1.html
+	echo "<html>" >> $1.html
+	echo "<head>" >> $1.html
+	echo "  <title>My I2P Services: $upper </title>" >> $1.html
+	echo "  <link rel=\"stylesheet\" type=\"text/css\" href =\"home.css\" />" >> $1.html
+	echo "</head>" >> $1.html
+	echo "<body>" >> $1.html
+}
+
+function hfoot() {
+	echo "</body>" >> $1.html
+	echo "</html>" >> $1.html
+}
+
 function pages() {
 	echo -n "" > README.md
 	echo -n "" > index.html
@@ -38,9 +54,13 @@ function pages() {
 		cat $lower.sh >> $lower.md
 		echo '```' >> $lower.md
 		echo '' >> $lower.md
-		pandoc "$lower.md" -o $lower.html
+		hhead $lower
+		pandoc "$lower.md" >> $lower.html
+		hfoot $lower
 		cat $lower.md >> README.md
-		pandoc README.md > index.html
+		hhead index
+		pandoc README.md >> index.html
+		hfoot index
 	done
 }
 

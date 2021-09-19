@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My I2P Services: INDEX </title>
+  <link rel="stylesheet" type="text/css" href ="home.css" />
+</head>
+<body>
 <h1 id="setup-scripts-and-notes-for-services-i-currently-run"><a href="index.html">Setup Scripts and Notes for Services I Currently Run</a></h1>
 <h3 id="notes">Notes:</h3>
 <ul>
@@ -9,8 +16,6 @@
 <h3 id="notes-1">Notes:</h3>
 <ul>
 <li>Hosting this site(The one in this repository) requires a checkout of this repository. It can be anywhere, the script finds the correct directory to use.</li>
-<li>Requires <code>docker</code> and <code>bash</code>(Not <code>dash</code> or <code>mksh</code>, <code>bash</code>), as well as an I2P router. UDP services require either i2pd or a freestanding proxy capable of supporting UDP traffic.</li>
-<li>SAM is expected to be enabled on the I2P Router for some services, including hosting this site with eephttpd.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
@@ -38,7 +43,7 @@
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="ex">docker</span> pull portainer/portainer-ce</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="ex">docker</span> rm -f portainer</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="ex">docker</span> run -d -p 127.0.0.1:8000:8000 -p 127.0.0.1:9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">&quot;</span>/portainer-data:/data portainer/portainer-ce</span></code></pre></div>
-<h2 id="pastebin-based-on-cowyo"><a href="pastebin.html">Pastebin: Based on Cowyo</a></h2>
+<h2 id="pastebin-cowyo"><a href="pastebin.html">Pastebin: Cowyo</a></h2>
 <h3 id="notes-3">Notes:</h3>
 <ul>
 <li>No Special Configuration Required.</li>
@@ -47,7 +52,7 @@
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="ex">docker</span> pull schollz/cowyo</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="ex">docker</span> rm -f pastebin</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="ex">docker</span> run --restart=always --name=pastebin -d -v <span class="va">$HOME</span>/cowyo-data:/data -p 127.0.0.1:8050:8050 schollz/cowyo</span></code></pre></div>
-<h2 id="news-server-based-on-i2p.newsxml"><a href="newsxml.html">News Server: Based on i2p.newsxml</a></h2>
+<h2 id="news-server-i2p.newsxml"><a href="newsxml.html">News Server: i2p.newsxml</a></h2>
 <h3 id="notes-4">Notes:</h3>
 <ul>
 <li>This script expects your i2p.newsxml checkout to exist in <code>$HOME/i2p.newsxml</code> so that it can build the hosting container in that directory.</li>
@@ -59,9 +64,11 @@
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="ex">docker</span> build -t i2p.newsxml .</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="ex">docker</span> rm -f newsxml</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="ex">docker</span> run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml</span></code></pre></div>
-<h2 id="wiki-based-on-dokuwiki"><a href="dokuwiki.html">Wiki: Based on DokuWiki</a></h2>
+<h2 id="wiki-dokuwiki"><a href="dokuwiki.html">Wiki: DokuWiki</a></h2>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
-<h2 id="freecivstrategy-game-server"><a href="freeciv.html">Freeciv(Strategy Game) Server</a></h2>
+<h2 id="strategy-game-freeciv-server"><a href="freeciv.html">Strategy Game: Freeciv Server</a></h2>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
 <h2 id="radio-station"><a href="radio.html">“Radio” Station:</a></h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"></code></pre></div>
+</body>
+</html>

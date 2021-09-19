@@ -1,4 +1,11 @@
-<h2 id="news-server-based-on-i2p.newsxml"><a href="newsxml.html">News Server: Based on i2p.newsxml</a></h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My I2P Services: NEWSXML </title>
+  <link rel="stylesheet" type="text/css" href ="home.css" />
+</head>
+<body>
+<h2 id="news-server-i2p.newsxml"><a href="newsxml.html">News Server: i2p.newsxml</a></h2>
 <h3 id="notes">Notes:</h3>
 <ul>
 <li>This script expects your i2p.newsxml checkout to exist in <code>$HOME/i2p.newsxml</code> so that it can build the hosting container in that directory.</li>
@@ -10,3 +17,5 @@
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">docker</span> build -t i2p.newsxml .</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">docker</span> rm -f newsxml</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="ex">docker</span> run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml</span></code></pre></div>
+</body>
+</html>

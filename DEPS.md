@@ -8,3 +8,15 @@
   of supporting UDP traffic.
  - SAM is expected to be enabled on the I2P Router for some services, including
   hosting this site with eephttpd.
+
+### Usage:
+
+```bash
+functions: help pages clean install uninstall
+
+help: show this message
+pages: generate the pages
+clean: clean up the pages
+install: setup the cron jobs and shell scripts
+uninstall: remove the cron jobs and shell scripts
+```

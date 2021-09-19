@@ -1,2 +1,2 @@
-[Wiki: Based on DokuWiki](dokuwiki.html)
+[Wiki: DokuWiki](dokuwiki.html)
 ----------------------------------------

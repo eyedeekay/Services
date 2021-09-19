@@ -1,9 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My I2P Services: HOST </title>
+  <link rel="stylesheet" type="text/css" href ="home.css" />
+</head>
+<body>
 <h2 id="setting-up-the-i2p-hosts-automatically"><a href="host.html">Setting up the I2P Hosts Automatically</a></h2>
 <h3 id="notes">Notes:</h3>
 <ul>
 <li>Hosting this site(The one in this repository) requires a checkout of this repository. It can be anywhere, the script finds the correct directory to use.</li>
-<li>Requires <code>docker</code> and <code>bash</code>(Not <code>dash</code> or <code>mksh</code>, <code>bash</code>), as well as an I2P router. UDP services require either i2pd or a freestanding proxy capable of supporting UDP traffic.</li>
-<li>SAM is expected to be enabled on the I2P Router for some services, including hosting this site with eephttpd.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
@@ -21,3 +26,5 @@
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>    <span class="ex">--restart</span> always <span class="kw">\</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$DIR</span><span class="st">&quot;</span>:/opt/eephttpd/www <span class="kw">\</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>    <span class="ex">eyedeekay/eephttpd</span></span></code></pre></div>
+</body>
+</html>
