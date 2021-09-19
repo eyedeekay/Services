@@ -80,6 +80,11 @@ docker run -d -p 127.0.0.1:8000:8000 -p 127.0.0.1:9000:9000 --name=portainer --r
 
  - No Special Configuration Required.
 
+### Public URLs:
+
+ - [glue.idk.i2p](http://glue.idk.i2p)
+ - \[paste.idk.i2p\]\(http://paste.idk.i2p\) Will Replace this service week of 20 September, 2021
+
 ```bash
 #! /usr/bin/env sh
 docker pull schollz/cowyo
