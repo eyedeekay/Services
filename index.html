@@ -76,7 +76,7 @@
 <h3 id="notes-5">Notes:</h3>
 <ul>
 <li>This sets up an update server for the I2P Jpackages. It will check out the site at <code>$HOME/i2p-jpackage</code> and <code>jpackage.sh</code> will run the internal <code>update-site.sh</code> script as a cron job.</li>
-<li>If you’re me, you need to copy <code>eephttpd.i2pkeys</code> to <code>$HOME</code> before running. If you’re not me, I’m just tickled that you’re setting up an update server for your own fork. Maybe ping me on IRC.</li>
+<li>If you’re me, you need to copy <code>eephttpd-jpackage.i2pkeys</code> to <code>$HOME/eephttpd-jpackage-data/</code> before running. If you’re not me, I’m just tickled that you’re setting up an update server for your own fork. Maybe ping me on IRC.</li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">if</span><span class="bu"> [</span> <span class="ot">!</span> <span class="ot">-d</span> <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/i2p-jpackage&quot;</span><span class="bu"> ]</span>; <span class="kw">then</span></span>
