@@ -14,5 +14,5 @@
 
 ### See Also:
 
- - [Repo](https://github.com/i2p/i2p.newsxml)
  - [Gitlab](https://i2pgit.org/i2p-hackers/i2p.newsxml)
+ - [Github](https://github.com/i2p/i2p.newsxml)
