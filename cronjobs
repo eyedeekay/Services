@@ -1,4 +1,0 @@
-0 * * * *	/home/idk/Workspace/GIT_WORK/i2p.www/site-updater-docker.sh
-0 0 * * *	/home/idk/portainer.sh
-0 0 * * *	/home/idk/pastebin.sh
-0 0 * * *	/home/idk/newsxml.sh
