@@ -33,6 +33,11 @@ uninstall: remove the cron jobs and shell scripts
  - Hosting this site(The one in this repository) requires a checkout of this
   repository. It can be anywhere, the script finds the correct directory to use.
 
+### See Also:
+
+ - [Repo](https://github.com/eyedeekay/Services)
+ - [Clearnet](https://eyedeekay.github.io/Services)
+
 ```bash
 #!/usr/bin/env bash
 
@@ -48,6 +53,7 @@ docker run -i -t -d \
 	--hostname i2pservices \
 	--name i2pservices \
 	--restart always \
+	--volume "$HOME/i2p-services":/opt/eephttpd/keys \
 	--volume "$DIR":/opt/eephttpd/www \
 	eyedeekay/eephttpd
 ```
@@ -95,6 +101,11 @@ docker run --restart=always --name=pastebin -d -v $HOME/cowyo-data:/data -p 127.
   Generate and sign them on one machine, copy them to the host machine, and run
   the update script.
 
+### See Also:
+
+ - [Repo](https://github.com/i2p/i2p.newsxml)
+ - [Gitlab](https://i2pgit.org/i2p-hackers/i2p.newsxml)
+
 ```bash
 #! /usr/bin/env sh
 cd $HOME/i2p.newsxml
@@ -103,8 +114,8 @@ docker rm -f newsxml
 docker run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml
 ```
 
-I2P Jpackage Update Server
---------------------------
+[I2P Jpackage Update Server](jpackage.html)
+-------------------------------------------
 
 ### Notes:
 
@@ -114,6 +125,11 @@ I2P Jpackage Update Server
  - If you're me, you need to copy `eephttpd-jpackage.i2pkeys` to `$HOME/eephttpd-jpackage-data/`
   before running. If you're not me, I'm just tickled that you're setting up an update server for
   your own fork. Maybe ping me on IRC.
+
+### See Also:
+
+ - [Repo](https://github.com/eyedeekay/i2p)
+ - [Clearnet](https://eyedeekay.github.io/i2p)
 
 ```bash
 #! /usr/bin/env sh

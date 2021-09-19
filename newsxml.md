@@ -12,6 +12,11 @@
   Generate and sign them on one machine, copy them to the host machine, and run
   the update script.
 
+### See Also:
+
+ - [Repo](https://github.com/i2p/i2p.newsxml)
+ - [Gitlab](https://i2pgit.org/i2p-hackers/i2p.newsxml)
+
 ```bash
 #! /usr/bin/env sh
 cd $HOME/i2p.newsxml

@@ -25,6 +25,11 @@
 <ul>
 <li>Hosting this site(The one in this repository) requires a checkout of this repository. It can be anywhere, the script finds the correct directory to use.</li>
 </ul>
+<h3 id="see-also">See Also:</h3>
+<ul>
+<li><a href="https://github.com/eyedeekay/Services">Repo</a></li>
+<li><a href="https://eyedeekay.github.io/Services">Clearnet</a></li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="va">DIR=$(</span><span class="fu">dirname</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">readlink</span> -f <span class="st">&quot;</span><span class="va">$0</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span><span class="va">)</span></span>
@@ -39,8 +44,9 @@
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    <span class="ex">--hostname</span> i2pservices <span class="kw">\</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    <span class="ex">--name</span> i2pservices <span class="kw">\</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    <span class="ex">--restart</span> always <span class="kw">\</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$DIR</span><span class="st">&quot;</span>:/opt/eephttpd/www <span class="kw">\</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    <span class="ex">eyedeekay/eephttpd</span></span></code></pre></div>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/i2p-services&quot;</span>:/opt/eephttpd/keys <span class="kw">\</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$DIR</span><span class="st">&quot;</span>:/opt/eephttpd/www <span class="kw">\</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>    <span class="ex">eyedeekay/eephttpd</span></span></code></pre></div>
 <h2 id="docker-system-management-portainer"><a href="portainer.html">Docker system Management: Portainer</a></h2>
 <h3 id="notes-2">Notes:</h3>
 <ul>
@@ -67,16 +73,26 @@
 <li>This is the script that relaunches backup news server for I2P I run. Nobody else can really use it without the keys, unless they want to set up another news server on a different URL.</li>
 <li>This doesn’t handle generating or signing the news feeds, just hosting them. Generate and sign them on one machine, copy them to the host machine, and run the update script.</li>
 </ul>
+<h3 id="see-also-1">See Also:</h3>
+<ul>
+<li><a href="https://github.com/i2p/i2p.newsxml">Repo</a></li>
+<li><a href="https://i2pgit.org/i2p-hackers/i2p.newsxml">Gitlab</a></li>
+</ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="bu">cd</span> <span class="va">$HOME</span>/i2p.newsxml</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="ex">docker</span> build -t i2p.newsxml .</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="ex">docker</span> rm -f newsxml</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="ex">docker</span> run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml</span></code></pre></div>
-<h2 id="i2p-jpackage-update-server">I2P Jpackage Update Server</h2>
+<h2 id="i2p-jpackage-update-server"><a href="jpackage.html">I2P Jpackage Update Server</a></h2>
 <h3 id="notes-5">Notes:</h3>
 <ul>
 <li>This sets up an update server for the I2P Jpackages. It will check out the site at <code>$HOME/i2p-jpackage</code> and <code>jpackage.sh</code> will run the internal <code>update-site.sh</code> script as a cron job.</li>
 <li>If you’re me, you need to copy <code>eephttpd-jpackage.i2pkeys</code> to <code>$HOME/eephttpd-jpackage-data/</code> before running. If you’re not me, I’m just tickled that you’re setting up an update server for your own fork. Maybe ping me on IRC.</li>
+</ul>
+<h3 id="see-also-2">See Also:</h3>
+<ul>
+<li><a href="https://github.com/eyedeekay/i2p">Repo</a></li>
+<li><a href="https://eyedeekay.github.io/i2p">Clearnet</a></li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">if</span><span class="bu"> [</span> <span class="ot">!</span> <span class="ot">-d</span> <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/i2p-jpackage&quot;</span><span class="bu"> ]</span>; <span class="kw">then</span></span>

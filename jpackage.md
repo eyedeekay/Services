@@ -1,5 +1,5 @@
-I2P Jpackage Update Server
---------------------------
+[I2P Jpackage Update Server](jpackage.html)
+-------------------------------------------
 
 ### Notes:
 
@@ -9,6 +9,11 @@ I2P Jpackage Update Server
  - If you're me, you need to copy `eephttpd-jpackage.i2pkeys` to `$HOME/eephttpd-jpackage-data/`
   before running. If you're not me, I'm just tickled that you're setting up an update server for
   your own fork. Maybe ping me on IRC.
+
+### See Also:
+
+ - [Repo](https://github.com/eyedeekay/i2p)
+ - [Clearnet](https://eyedeekay.github.io/i2p)
 
 ```bash
 #! /usr/bin/env sh

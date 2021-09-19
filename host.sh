@@ -12,5 +12,6 @@ docker run -i -t -d \
 	--hostname i2pservices \
 	--name i2pservices \
 	--restart always \
+	--volume "$HOME/i2p-services":/opt/eephttpd/keys \
 	--volume "$DIR":/opt/eephttpd/www \
 	eyedeekay/eephttpd

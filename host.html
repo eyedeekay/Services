@@ -10,6 +10,11 @@
 <ul>
 <li>Hosting this site(The one in this repository) requires a checkout of this repository. It can be anywhere, the script finds the correct directory to use.</li>
 </ul>
+<h3 id="see-also">See Also:</h3>
+<ul>
+<li><a href="https://github.com/eyedeekay/Services">Repo</a></li>
+<li><a href="https://eyedeekay.github.io/Services">Clearnet</a></li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="va">DIR=$(</span><span class="fu">dirname</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">readlink</span> -f <span class="st">&quot;</span><span class="va">$0</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span><span class="va">)</span></span>
@@ -24,7 +29,8 @@
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>    <span class="ex">--hostname</span> i2pservices <span class="kw">\</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    <span class="ex">--name</span> i2pservices <span class="kw">\</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>    <span class="ex">--restart</span> always <span class="kw">\</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$DIR</span><span class="st">&quot;</span>:/opt/eephttpd/www <span class="kw">\</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>    <span class="ex">eyedeekay/eephttpd</span></span></code></pre></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/i2p-services&quot;</span>:/opt/eephttpd/keys <span class="kw">\</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>    <span class="ex">--volume</span> <span class="st">&quot;</span><span class="va">$DIR</span><span class="st">&quot;</span>:/opt/eephttpd/www <span class="kw">\</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>    <span class="ex">eyedeekay/eephttpd</span></span></code></pre></div>
 </body>
 </html>

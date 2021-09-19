@@ -5,3 +5,8 @@
 
  - Hosting this site(The one in this repository) requires a checkout of this
   repository. It can be anywhere, the script finds the correct directory to use.
+
+### See Also:
+
+ - [Repo](https://github.com/eyedeekay/Services)
+ - [Clearnet](https://eyedeekay.github.io/Services)
