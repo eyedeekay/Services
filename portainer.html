@@ -1,0 +1,10 @@
+<h2 id="docker-system-management-portainer"><a href="portainer.html">Docker system Management: Portainer</a></h2>
+<h3 id="notes">Notes:</h3>
+<ul>
+<li>Set up username/password before exposing hidden service</li>
+<li>Uses Encrypted LeaseSet</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="ex">docker</span> pull portainer/portainer-ce</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">docker</span> rm -f portainer</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">docker</span> run -d -p 127.0.0.1:8000:8000 -p 127.0.0.1:9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">&quot;</span>/portainer-data:/data portainer/portainer-ce</span></code></pre></div>

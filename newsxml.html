@@ -1,0 +1,12 @@
+<h2 id="news-server-based-on-i2p.newsxml"><a href="newsxml.html">News Server: Based on i2p.newsxml</a></h2>
+<h3 id="notes">Notes:</h3>
+<ul>
+<li>This script expects your i2p.newsxml checkout to exist in <code>$HOME/i2p.newsxml</code> so that it can build the hosting container in that directory.</li>
+<li>This is the script that relaunches backup news server for I2P I run. Nobody else can really use it without the keys, unless they want to set up another news server on a different URL.</li>
+<li>This doesn’t handle generating or signing the news feeds, just hosting them. Generate and sign them on one machine, copy them to the host machine, and run the update script.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="bu">cd</span> <span class="va">$HOME</span>/i2p.newsxml</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">docker</span> build -t i2p.newsxml .</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">docker</span> rm -f newsxml</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="ex">docker</span> run -d --restart=always --name newsxml -p 127.0.0.1:3000:3000 i2p.newsxml</span></code></pre></div>

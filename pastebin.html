@@ -1,0 +1,9 @@
+<h2 id="pastebin-based-on-cowyo"><a href="pastebin.html">Pastebin: Based on Cowyo</a></h2>
+<h3 id="notes">Notes:</h3>
+<ul>
+<li>No Special Configuration Required.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">#! /usr/bin/env sh</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="ex">docker</span> pull schollz/cowyo</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">docker</span> rm -f pastebin</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">docker</span> run --restart=always --name=pastebin -d -v <span class="va">$HOME</span>/cowyo-data:/data -p 127.0.0.1:8050:8050 schollz/cowyo</span></code></pre></div>
